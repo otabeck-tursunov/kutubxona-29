@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar | Qo'shish</title>
+</head>
+<body>
+<a href="/mualliflar/">Mualliflar ro'yxati</a>
+<h3>Yangi muallif yaratish</h3>
+<form method="post">
+  {% csrf_token %}
+  <label for="ism">Ism: </label>
+  <input type="text" name="ism" id="ism" required>
+  <br><br>
+  <label for="jins">Jins: </label>
+  <input type="text" name="jins" id="jins" required>
+  <br><br>
+  <label for="t_sana">Tug'ilgan sana: </label>
+  <input type="date" name="t_sana" id="t_sana">
+  <br><br>
+  <label for="kitob_soni">Kitob soni: </label>
+  <input type="number" name="kitob_soni" id="kitob_soni">
+  <br><br>
+  <label for="tirik">Tirik: </label>
+  <input type="checkbox" name="tirik" id="tirik">
+  <br><br>
+  <button>Saqlash</button>
+</form>
+</body>
+</html>

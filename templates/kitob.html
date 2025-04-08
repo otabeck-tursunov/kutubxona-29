@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar | {{ kitob.nom }}</title>
+</head>
+<body>
+<a href="{% url 'kitoblar' %}">Kitoblar ro'yxati</a>
+<h2>{{ kitob.nom }} ma'lumotlari</h2>
+<hr>
+<p>Muallif: <b>{{ kitob.muallif.ism }}</b></p>
+<p>Janr: {{ kitob.janr }}</p>
+<p>Sahifa: {{ kitob.sahifa }} bet</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+</head>
+<body>
+<a href="/">Bosh sahifa</a>
+<h2>Kitoblar ro'yxati</h2>
+<hr>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>Saqlash</button>
+</form>
+<hr>
+{% for kitob in kitoblar %}
+  <p>{{ forloop.counter }}. <a href="/kitoblar/{{ kitob.id }}/">{{ kitob.nom }}</a>
+    <a href="/kitoblar/{{ kitob.id }}/update/">
+      <button>Update</button>
+    </a>
+  </p>
+{% endfor %}
+</body>
+</html>

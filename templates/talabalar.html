@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kutubxona | Talabalar </title>
+</head>
+<body>
+<a href="/">Bosh sahifa</a>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ talaba_form.as_p }}
+    <button>Saqlash</button>
+</form>
+<hr>
+<h3>Talabalar ro'yxati</h3>
+{% for talaba in talabalar %}
+  <p>
+      {{ forloop.counter }}.
+      <a href="/talabalar/{{ talaba.id }}/">{{ talaba.ism }}</a>
+      <a href="/talabalar/{{ talaba.id }}/update/">
+          <button>Update</button>
+      </a>
+  </p>
+{% endfor %}
+
+</body>
+</html>

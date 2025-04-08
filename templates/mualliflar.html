@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar ro'yxati</title>
+</head>
+<body>
+<a href="/">Bosh sahifa</a>
+<h1>Mualliflar ro'yxati</h1>
+<a href="/muallif-qoshish/">
+    <button>Yangi muallif qo'shish</button>
+</a>
+<hr>
+{% for muallif in mualliflar %}
+<p>{{ forloop.counter }}. {{ muallif.ism }}</p>
+{% endfor %}
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Submit</button>
+</form>
+</body>
+</html>

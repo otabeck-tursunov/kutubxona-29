@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar | Update</title>
+</head>
+<body>
+<h2>{{ kitob.nom }} ma'lumotlarini o'zgartirish</h2>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <label for="nom">Nom: </label>
+    <input type="text" name="nom" id="nom" value="{{ kitob.nom }}">
+    <br><br>
+    <label for="janr">Janr: </label>
+    <input type="text" name="janr" id="janr" value="{{ kitob.janr }}">
+    <br><br>
+    <label for="sahifa">Sahifa: </label>
+    <input type="number" name="sahifa" id="sahifa" value="{{ kitob.sahifa }}">
+    <br><br>
+    <label for="muallif">Muallif: </label>
+    <select name="muallif_id" id="muallif">
+        {% for muallif in mualliflar %}
+            <option value="{{ muallif.id }}"
+            {% if kitob.muallif == muallif %} selected {% endif %}
+            >{{ muallif.ism }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <a href="/kitoblar/">
+        <button type="button">Bekor qilish</button>
+    </a>
+    <button>Saqlash</button>
+</form>
+</body>
+</html>
